@@ -7,3 +7,6 @@ def home(request):
 
 def cart(request):
     return render(request,"cart.html")
+
+def order(request):
+    return render(request,"order.html")
