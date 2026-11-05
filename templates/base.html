@@ -1,13 +1,33 @@
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    {% block content %}
-
-
-    {% endblock %}
-</body>
+    <style>
+      .header {
+        background-color: orange;
+        justify-content: space-between;
+        color: white;
+        display: flex;
+      }
+      .footer {
+        background-color: silver;
+      }
+      .menu li{
+        display: inline-block;
+        padding: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <h1>My Store</h1>
+      <ul class="menu">
+        <li><a href="/">Home</a></li>
+        <li><a href="/cart">Cart</a></li>
+      </ul>
+    </div>
+    {% block content %} {% endblock %}
+    <h3 class="footer">&copy; copyright 2026. All rigts reseved.</h3>
+  </body>
 </html>
