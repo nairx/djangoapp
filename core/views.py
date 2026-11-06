@@ -5,7 +5,8 @@ from core import models
 # Create your views here.
 
 def home(request):
-    return render(request,"home.html")
+    products = models.product.objects.all()
+    return render(request,"home.html",{'products':products})
 
 def cart(request):
     return render(request,"cart.html")
@@ -28,3 +29,12 @@ def deleteTodo(request):
         models.todo.objects.filter(id=todoId).delete()
     return todo(request)
 
+def product(request):
+    if request.method == "POST":
+        name = request.POST.get("name")
+        price = request.POST.get("price")
+        desc = request.POST.get("desc")
+        imageUrl=request.POST.get("imageUrl")
+        product=models.product(name=name,price=price,desc=desc,imageUrl=imageUrl)
+        product.save()
+    return render(request,"products.html")
