@@ -22,3 +22,9 @@ def todo(request):
     data = {'todos':mytodo}
     return render(request,"todo.html",data)
 
+def deleteTodo(request):
+    if request.method=="GET":
+        todoId = int(request.GET.get("id"))
+        models.todo.objects.filter(id=todoId).delete()
+    return todo(request)
+

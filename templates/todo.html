@@ -14,7 +14,7 @@
       </p>
       <div>
         {% for row in todos %}
-        <div>{{row.task}}</div>
+        <div>{{row.task}}- <a href="/deleteTodo/?id={{row.id}}">Delete</a></div>
         {% endfor %}
       </div>
     </form>
