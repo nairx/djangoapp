@@ -1,5 +1,7 @@
 from django.shortcuts import render
 
+from core import models
+
 # Create your views here.
 
 def home(request):
@@ -12,4 +14,11 @@ def order(request):
     return render(request,"order.html")
 
 def todo(request):
-    return render(request,"todo.html")
+    if request.method == "POST":
+        req=request.POST.get("task")
+        task = models.todo(task=req)
+        task.save()
+    mytodo = models.todo.objects.all()
+    data = {'todos':mytodo}
+    return render(request,"todo.html",data)
+

@@ -1,10 +1,22 @@
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Todo App</h1>
-</body>
+    <form method="POST">
+      {% csrf_token %}
+      <p>
+        <input type="text" placeholder="Enter Task" name="task" />
+        <button>Add</button>
+      </p>
+      <div>
+        {% for row in todos %}
+        <div>{{row.task}}</div>
+        {% endfor %}
+      </div>
+    </form>
+  </body>
 </html>
