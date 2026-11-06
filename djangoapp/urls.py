@@ -23,4 +23,5 @@ urlpatterns = [
     path("",views.home),
     path("cart/",views.cart),
     path("order/",views.order),
+    path("todo/",views.todo)
 ]
